@@ -26,16 +26,27 @@ export const metadata: Metadata = {
     "Azure", "AWS", "GCP", "Stevens Institute", "Portfolio",
   ],
   authors: [{ name: "Joshuva Prabhakar Palicharla" }],
+  metadataBase: new URL("https://joshuva-portfolio.vercel.app"),
   openGraph: {
     title: "Joshuva Prabhakar — AI & ML Engineer",
     description:
       "Building intelligent systems that perform in production. LLMs, MLOps, Generative AI.",
     type: "website",
+    url: "https://joshuva-portfolio.vercel.app",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Joshuva Prabhakar Palicharla — AI & ML Engineer",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Joshuva Prabhakar — AI & ML Engineer",
     description: "Building intelligent systems that perform in production.",
+    images: ["/og-image.png"],
   },
 };
 

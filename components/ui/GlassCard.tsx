@@ -22,7 +22,7 @@ export default function GlassCard({
       className={cn(
         "rounded-xl p-6",
         accent ? "glass-accent" : "glass",
-        hoverable && "glass-hover cursor-pointer",
+        hoverable && "glass-hover lift-hover cursor-pointer",
         className
       )}
       {...props}

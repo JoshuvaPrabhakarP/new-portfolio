@@ -24,36 +24,28 @@ export default function Hero() {
       className="relative min-h-screen flex flex-col justify-center pt-28 pb-20 overflow-hidden"
       style={{ background: "var(--gradient-hero)" }}
     >
-      {/* Background orbs */}
+      {/* Premium AI-generated backdrop + legibility overlays */}
       <div aria-hidden className="pointer-events-none select-none absolute inset-0 overflow-hidden">
+        <Image
+          src="/hero-bg.png"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-right opacity-80"
+        />
+        {/* Left-to-right dark wash so headline text stays high-contrast */}
         <div
-          className="absolute rounded-full blur-3xl opacity-20"
+          className="absolute inset-0"
           style={{
-            width: 600,
-            height: 600,
-            top: "-10%",
-            left: "-10%",
-            background: "radial-gradient(circle, #2563EB 0%, transparent 70%)",
+            background:
+              "linear-gradient(90deg, #080C18 0%, rgba(8,12,24,0.86) 32%, rgba(8,12,24,0.45) 65%, rgba(8,12,24,0.55) 100%)",
           }}
         />
+        {/* Bottom fade into the page background */}
         <div
-          className="absolute rounded-full blur-3xl opacity-15"
-          style={{
-            width: 500,
-            height: 500,
-            bottom: "5%",
-            right: "-5%",
-            background: "radial-gradient(circle, #06B6D4 0%, transparent 70%)",
-          }}
-        />
-        {/* Grid lines */}
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-          }}
+          className="absolute inset-x-0 bottom-0 h-32"
+          style={{ background: "linear-gradient(to bottom, transparent, var(--color-bg-base))" }}
         />
       </div>
 
@@ -186,7 +178,7 @@ export default function Hero() {
             >
               Key Highlights
             </p>
-            <div className="flex flex-wrap gap-3">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 auto-rows-fr">
               {metrics.map((m, i) => (
                 <MetricBadge
                   key={m.value}
@@ -217,18 +209,15 @@ export default function Hero() {
                 style={{ background: "var(--gradient-accent)" }}
               >
                 <div
-                  className="rounded-full overflow-hidden"
-                  style={{
-                    width: 320,
-                    height: 320,
-                    background: "var(--color-bg-surface)",
-                  }}
+                  className="rounded-full overflow-hidden w-56 h-56 sm:w-72 sm:h-72 lg:w-80 lg:h-80"
+                  style={{ background: "var(--color-bg-surface)" }}
                 >
                   <Image
                     src="/profile.jpg"
                     alt="Joshuva Prabhakar Palicharla — AI & ML Engineer"
                     width={320}
                     height={320}
+                    sizes="(max-width: 640px) 224px, (max-width: 1024px) 288px, 320px"
                     className="object-cover object-center w-full h-full"
                     priority
                   />

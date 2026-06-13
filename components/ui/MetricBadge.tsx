@@ -16,7 +16,7 @@ export default function MetricBadge({ value, label, context, index = 0 }: Metric
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.4, delay: index * 0.07 }}
-      className="glass rounded-xl p-4 text-center min-w-[100px]"
+      className="glass lift-hover rounded-xl p-4 text-center h-full w-full flex flex-col justify-center"
       style={{ borderColor: "rgba(6, 182, 212, 0.15)" }}
     >
       <div

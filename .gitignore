@@ -34,3 +34,5 @@ design-system/
 JOSHUVA DATA.MD
 __pycache__/
 *.pyc
+
+.vercel

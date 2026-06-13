@@ -9,11 +9,9 @@ import { projects, type Project } from "@/lib/data";
 function ProjectCard({
   project,
   index,
-  large = false,
 }: {
   project: Project;
   index: number;
-  large?: boolean;
 }) {
   return (
     <motion.div
@@ -21,13 +19,12 @@ function ProjectCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.5, delay: index * 0.07 }}
-      className="group relative flex flex-col rounded-2xl overflow-hidden cursor-pointer transition-all duration-300"
+      className="group relative flex flex-col h-full rounded-2xl overflow-hidden cursor-pointer transition-all duration-300"
       style={{
         background: project.highlight ? "var(--gradient-card)" : "var(--color-glass-bg)",
         border: `1px solid ${project.highlight ? "var(--color-border-accent)" : "var(--color-border-subtle)"}`,
-        minHeight: large ? 260 : 200,
       }}
-      whileHover={{ scale: 1.015, transition: { duration: 0.2 } }}
+      whileHover={{ y: -6, transition: { duration: 0.2 } }}
     >
       {/* Hover glow */}
       <div
@@ -90,7 +87,7 @@ function ProjectCard({
         {/* Title + date */}
         <div>
           <h3
-            className={`font-bold mb-1 leading-snug ${large ? "text-lg sm:text-xl" : "text-base"}`}
+            className="font-bold mb-1 leading-snug text-base sm:text-lg"
             style={{ color: "var(--color-text-primary)", fontFamily: "var(--font-heading)" }}
           >
             {project.title}
@@ -159,18 +156,14 @@ export default function Projects() {
           subtitle="From 15M-record MLOps pipelines to from-scratch ML implementations — each project targets a real problem."
         />
 
-        {/* Uniform 3-col grid — last card fills remaining columns to avoid orphan gap */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {/* Uniform 3-col grid — equal heights via auto-rows-fr; orphan card spans full width */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 auto-rows-fr">
           {ordered.map((project, i) => (
             <div
               key={project.id}
-              className={i === lastIndex ? "sm:col-span-2 lg:col-span-3" : "col-span-1"}
+              className={`h-full ${i === lastIndex ? "sm:col-span-2 lg:col-span-3" : "col-span-1"}`}
             >
-              <ProjectCard
-                project={project}
-                index={i}
-                large={!!project.highlight}
-              />
+              <ProjectCard project={project} index={i} />
             </div>
           ))}
         </div>
