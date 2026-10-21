@@ -6,27 +6,63 @@ export const personal = {
   name: "Joshuva Prabhakar Palicharla",
   nameShort: "Joshuva Prabhakar",
   initials: "JP",
-  headline: "AI & ML Engineer",
-  subheadline: "MSCS @ Stevens | Building intelligent systems that perform in production",
+  headline: "Software Engineer",
+  subheadline: "GenAI/RAG · Python · SQL · REST APIs · Cloud · Docker · CI/CD",
   tagline:
-    "I turn raw data and complex AI challenges into measurable business outcomes — through LLMs, scalable MLOps, and rigorous research.",
+    "I build reliable applications, backend services, and data pipelines — and GenAI/RAG applications when a problem calls for them.",
   email: "joshuvaprabhakarpalicharla@gmail.com",
   phone: "551-376-8712",
   location: "Jersey City, NJ",
   locationNote: "Open to on-site, hybrid, remote — NJ/NY preferred",
   linkedin: "https://www.linkedin.com/in/joshuva-prabhakar",
   github: "https://github.com/JoshuvaPrabhakarP",
-  targetRoles: ["AI Engineer", "ML Engineer", "Data Scientist", "Data Analyst", "Cloud Data Engineer"],
+  targetRoles: ["Software Engineer", "Software Developer", "Backend Engineer", "Data Engineer", "Data Analyst"],
 };
 
 export const metrics = [
-  { value: "15M+", label: "Records processed", context: "Spark/Databricks ETL" },
-  { value: "94%", label: "Classification accuracy", context: "Deepfake Detection" },
-  { value: "R² 87.38", label: "Predictive accuracy", context: "CLV Stacking Ensemble" },
-  { value: "30%", label: "Time reduction", context: "ETL automation" },
-  { value: "6×", label: "Certified", context: "Microsoft Azure, Databricks, AWS" },
-  { value: "2", label: "Publications", context: "Peer-reviewed research" },
+  { value: "69.4% Hit@10", label: "Document Intelligence RAG", context: "Up from 55.6% with reranking, on 36 single-target queries", featured: true },
+  { value: "18-Model Study", label: "Transformer, Mamba & hybrid", context: "Six architectures across three seeds, document extraction", featured: true },
+  { value: "ETL + Tests", label: "Databricks pipeline", context: "Unit tests and data integrity checks" },
+  { value: "15M+", label: "Records processed", context: "Spark and Databricks ETL" },
+  { value: "94%", label: "Tweet classification accuracy", context: "Random Forest, best of 10 models" },
+  { value: "MS CS", label: "Stevens Institute", context: "Completed May 2026" },
+  { value: "2", label: "Published papers", context: "Deepfake detection, deep learning" },
+  { value: "Full-stack", label: "LMS built from scratch", context: "HTML, CSS, JavaScript, PHP, MySQL" },
 ];
+
+export const about = {
+  lead: "I turn complex problems and raw data into reliable software.",
+  intro:
+    "I'm Joshuva, a Software Engineer with an MS in Computer Science from Stevens Institute of Technology (May 2026), combining software development with data and AI.",
+  specializationsLabel: "What I specialize in",
+  specializations: [
+    {
+      title: "Software & Backend",
+      text: "Clean, testable Python and SQL, data-driven applications, REST APIs, and reliable development workflows.",
+    },
+    {
+      title: "Data Engineering",
+      text: "Spark and Databricks ETL pipelines processing 15M+ records with data integrity checks.",
+    },
+    {
+      title: "Cloud & Deployment",
+      text: "AWS, Azure, GCP, Docker, CI/CD, and MLOps.",
+    },
+    {
+      title: "Analytics",
+      text: "SQL, Power BI, and Tableau for actionable insights.",
+    },
+    {
+      title: "Applied AI",
+      text: "GenAI/RAG applications, LLMs, and machine learning.",
+    },
+  ],
+  results: "Selected results: 94% classification accuracy · CLV R² = 0.8738 · 30% less data-preparation time.",
+  closing:
+    "I bring engineering discipline and analytical depth to every project, whether that's building backend services, automating workflows, or extracting signal from large-scale data.",
+  open:
+    "Currently open to Software Engineer, Software Developer, Data Engineer, and Data Analyst roles (on-site, hybrid, or remote), with AI/ML-focused roles also welcome.",
+};
 
 export type Education = {
   institution: string;
@@ -49,9 +85,9 @@ export const education: Education[] = [
     graduation: "May 2026",
     location: "Hoboken, NJ",
     courses: [
-      "Machine Learning",
-      "Big Data Technologies",
       "Database Management Systems",
+      "Big Data Technologies",
+      "Machine Learning",
       "Text & Information Retrieval",
       "Marketing Analytics",
     ],
@@ -80,48 +116,76 @@ export type Experience = {
   period: string;
   location: string;
   bullets: string[];
+  stack: string[];
+  highlight?: boolean;
+  tag?: string;
 };
 
 export const experience: Experience[] = [
   {
     company: "AICTE NEAT",
-    role: "AI/ML Intern",
+    role: "AI-ML Virtual Intern",
     period: "Apr 2024 – Jun 2024",
     location: "India",
     bullets: [
-      "Boosted ML model training quality by applying Prompt Engineering with LLMs to generate synthetic training data and iteratively optimizing prompt design, replacing legacy datasets.",
-      "Reduced overfitting in production via cross-validation and data augmentation, validated by held-out evaluation metrics.",
+      "Built a text-classification pipeline on the public TweepFake dataset to tell human-written tweets from machine-generated ones; it became the basis of my capstone and published paper.",
+      "Turned tweet text into numerical features with CountVectorizer in Python.",
+      "Trained and compared 10 classifiers, including Random Forest, SVM, MLP, Logistic Regression, and Gradient Boosting. Random Forest performed best at 94% accuracy.",
+      "Evaluated models with cross-validation and classification metrics.",
     ],
+    stack: ["Python", "CountVectorizer", "Random Forest", "Cross-validation"],
   },
   {
-    company: "BRAINOVISION",
+    company: "BRAINOVISION SOLUTIONS INDIA PVT.LTD",
     role: "Data Science Intern",
     period: "Aug 2023 – Feb 2024",
-    location: "India",
+    location: "Hyderabad, India",
     bullets: [
-      "Achieved high classification accuracy for marketing analytics by building SVM-based ML models with feature engineering and hyperparameter tuning, measured by F1-score.",
-      "Delivered insight reports from model evaluations, accelerating data-driven decisions and reducing manual analysis time for stakeholders.",
+      "Prepared datasets with Python, Pandas, and NumPy, engineered features, and tuned SVM classifiers evaluated with F1-score.",
+      "Built an Amazon Sales Analytics dashboard in Power BI and Tableau dashboards covering sales categories, product performance, and trends over time.",
+      "Worked with cross-functional teams to gather requirements and shape analytical solutions, then reported model results and dashboard insights to stakeholders.",
     ],
+    stack: ["Python", "Pandas", "NumPy", "SVM", "Power BI", "Tableau"],
   },
   {
-    company: "EDUSTATION",
+    company: "EduStation",
     role: "Summer Intern",
     period: "May 2023 – Jul 2023",
-    location: "India",
+    location: "Bengaluru, India",
     bullets: [
-      "Reduced data preparation time by 30% for healthcare and financial datasets by automating ETL workflows in Databricks, measured by pipeline runtime benchmarks.",
-      "Built EDA-driven KPI dashboards with real-time monitoring, improving stakeholder visibility and enabling faster decisions.",
+      "Designed and built an automated ETL pipeline in Databricks that ingests, transforms, and loads raw financial and health-related data into analysis-ready tables, cutting data preparation time by 30%.",
+      "Validated pipeline output with unit tests and data integrity checks.",
+      "Ran EDA in Python and Pandas to resolve missing values and flag anomalies, then wrote SQL queries to surface risk patterns for root-cause analysis.",
+      "Built automated dashboards to track key metrics for business reporting.",
     ],
+    stack: ["Databricks", "ETL", "Python", "Pandas", "SQL"],
   },
   {
-    company: "VERZEO",
+    company: "Trainity",
+    role: "Virtual Internship",
+    period: "Mar 2022 – May 2022",
+    location: "Bangalore Urban, India",
+    tag: "Full-stack development",
+    highlight: true,
+    bullets: [
+      "Built a full-stack Learning Management System from scratch, supporting online courses for learners and educators.",
+      "Developed the front end in HTML, CSS, and JavaScript, including the course and learning pages.",
+      "Built the PHP back end with a MySQL database (managed in phpMyAdmin) to store and retrieve course and user data.",
+      "Split the codebase into separate pages, stylesheets, and scripts for maintainability, deployed the app online, and managed the code with Git and GitHub.",
+    ],
+    stack: ["HTML/CSS", "JavaScript", "PHP", "MySQL", "phpMyAdmin", "Git/GitHub"],
+  },
+  {
+    company: "Verzeo",
     role: "Machine Learning Intern",
     period: "Nov 2021 – Jan 2022",
-    location: "India",
+    location: "Bengaluru, India",
     bullets: [
-      "Improved sentiment analysis accuracy and speed by engineering NLP pipelines with PyTorch, CountVectorizer, and SVC, measured by F1-score.",
-      "Deployed ML models as Streamlit web apps, enabling real-time interaction and reducing time-to-insight for end users.",
+      "Preprocessed and analyzed large volumes of text with Python and NLP techniques to prepare it for modeling.",
+      "Built sentiment-classification models, evaluated them with classification metrics, and iterated to improve results.",
+      "Worked with cross-functional teams to integrate the sentiment analysis solutions into applications.",
     ],
+    stack: ["Python", "NLP", "Sentiment classification"],
   },
 ];
 
@@ -129,68 +193,88 @@ export type Project = {
   id: string;
   title: string;
   date: string;
-  affiliation: string;
+  affiliation?: string;
   description: string;
   stack: string[];
   metrics?: string[];
   highlight?: boolean;
   published?: boolean;
   link?: string;
+  repo?: string;
+  lead?: boolean;
+  details?: string[];
 };
 
 export const projects: Project[] = [
+  {
+    id: "doc-rag",
+    title: "Document-Intelligence-RAG: Enterprise RAG System with Dual-Track Metadata",
+    date: "July 2026",
+    description:
+      "A document intelligence RAG pipeline over 3,712 receipts from SROIE, WildReceipt, and CORD. I combined BGE embeddings and FAISS semantic search with BM25 keyword retrieval through Reciprocal Rank Fusion, added Transformer-extracted vendor, date, and amount metadata for filtered retrieval, and benchmarked seven retrieval configurations across 57 queries.",
+    details: [
+      "Evaluated cross-encoder reranking. On the 36 single-target queries within the 57-query benchmark, Hit@10 rose from 55.6% to 69.4% and MRR from 0.385 to 0.618.",
+      "Compared model-extracted metadata against ground truth, and analyzed retrieval failures and accuracy–latency trade-offs.",
+    ],
+    stack: ["Python", "BGE Embeddings", "FAISS", "BM25", "RRF", "Transformers", "Cross-Encoder Reranking"],
+    metrics: ["Hit@10 55.6% → 69.4%", "MRR 0.385 → 0.618", "36 single-target queries"],
+    repo: "https://github.com/JoshuvaPrabhakarP/Document-Intelligence-RAG",
+    highlight: true,
+    lead: true,
+  },
+  {
+    id: "hybrid-extractor",
+    title: "Hybrid Document Extractor: Transformer vs. Mamba vs. Hybrid Architectures for NER",
+    date: "Jun – Jul 2026",
+    description:
+      "Transformer, Mamba, and hybrid Mamba+Attention models for named entity recognition and receipt/invoice field extraction, all trained from scratch without a pretrained backbone. I ran an 18-model study across six architectures and three seeds, using CRF decoding, class-weighted loss, and early stopping.",
+    details: [
+      "Unified 3,684 documents from WildReceipt, SROIE, and CORD into a BIO-tagged NER dataset.",
+      "Trained a custom BPE tokenizer with an 8,000-token vocabulary and a 0% UNK rate.",
+      "Designed six architecture variants with matched layer counts: a pure Transformer, a pure Mamba, and four hybrid Mamba:Attention ratios.",
+      "Improved F1 by up to 8× over a naive baseline. Proper training reversed the naive ranking: the Transformer outperformed Mamba under the controlled training setup, tested with paired t-tests across seeds.",
+      "Measured 2.2–7.5× lower GPU memory use for Mamba than Transformer in the tested configurations.",
+      "Built Streamlit and Gradio dashboards for model comparison, extraction demos, and results visualization; the Gradio app can expose a temporary public link.",
+      "Findings are specific to this study's data, models, and configurations.",
+    ],
+    stack: ["Python", "PyTorch", "Transformer", "Mamba", "NER", "CRF", "BPE", "Streamlit", "Gradio"],
+    metrics: ["18-model study", "Up to 8× F1 over naive baseline", "2.2–7.5× lower GPU memory (Mamba)"],
+    repo: "https://github.com/JoshuvaPrabhakarP/hybrid-doc-extractor",
+    highlight: true,
+    lead: true,
+  },
   {
     id: "congestion",
     title: "LLM-Driven Congestion Prediction & Analytics",
     date: "May 2025",
     affiliation: "Stevens Institute of Technology",
     description:
-      "Engineered end-to-end Spark/Databricks ETL pipelines with cloud-based MLOps to process 15M+ traffic records, ensuring data integrity and transformation accuracy. Optimized runtime and cloud cost via MLOps auto-scaling on GCP Dataproc and Azure Databricks.",
-    stack: ["Spark", "Databricks", "GCP Dataproc", "Azure", "MLOps", "LLMs"],
-    metrics: ["15M+ records", "Cloud auto-scaling", "End-to-end MLOps"],
-    highlight: true,
-  },
-  {
-    id: "clv",
-    title: "Enhanced Customer Lifetime Value Prediction",
-    date: "Nov – Dec 2024",
-    affiliation: "Stevens Institute of Technology",
-    description:
-      "Developed an advanced CLV predictive model using stacking ensemble techniques, combining multiple ML algorithms to identify complex behavioral patterns that traditional linear models miss — enabling data-driven retention strategies and maximizing marketing ROI.",
-    stack: ["Python", "Scikit-learn", "Stacking Ensemble", "Feature Engineering"],
-    metrics: ["R² = 87.38", "MAE = 268.07", "Outperformed 5 benchmarks"],
+      "Data pipelines that prepare large traffic datasets for congestion prediction and analytics. I built end-to-end Spark/Databricks ETL with cloud-based MLOps, kept data integrity and transformation accuracy across 15M+ records, and tuned runtime and cloud cost with auto-scaling on GCP Dataproc and Azure Databricks.",
+    stack: ["Spark", "Databricks", "GCP Dataproc", "Azure", "MLOps"],
+    metrics: ["15M+ records", "Cloud auto-scaling"],
     highlight: true,
   },
   {
     id: "deepfake",
     title: "Enhanced Deepfake Detection on Social Media",
     date: "Mar – Jun 2024",
-    affiliation: "Narayana Engineering College",
+    affiliation: "Capstone · Narayana Engineering College",
     description:
-      "Developed an ML pipeline to classify tweets as human-generated or bot-generated using the Tweepfake dataset. Combined CountVectorizer with Random Forest and benchmarked against 9 other models. Published in IJREISS.",
-    stack: ["Python", "NLP", "Random Forest", "CountVectorizer"],
-    metrics: ["94% accuracy", "Outperformed 9 models"],
+      "A text-classification pipeline that separates human-written tweets from bot-generated ones on the TweepFake dataset. I built the feature extraction and Random Forest classifier and benchmarked it against 9 other models. Published in IJREISS.",
+    stack: ["Python", "CountVectorizer", "Random Forest", "NLP"],
+    metrics: ["94% accuracy", "Best of 10 models"],
+    highlight: true,
     published: true,
     link: "https://drive.google.com/file/d/1kiuhxMU21RKUO6tuhekVXtuWw9n4zJQU/view",
   },
   {
-    id: "lda",
-    title: "Fisher's LDA: Heart Disease Prediction",
-    date: "Oct 2024",
-    affiliation: "Stevens Institute of Technology",
+    id: "powerbi",
+    title: "Amazon Sales Analytics Dashboard",
+    date: "Dec 2023",
+    affiliation: "Brainovision Solutions (internship)",
     description:
-      "Implemented Fisher's LDA entirely from scratch — no pre-built ML libraries — including manual class mean computation, within-class scatter matrix derivation, and a custom decision boundary on the UCI Heart Disease dataset.",
-    stack: ["Python", "Linear Algebra", "NumPy", "Dimensionality Reduction"],
-    metrics: ["Zero ML libraries", "Custom decision boundary"],
-  },
-  {
-    id: "linreg",
-    title: "Manual Linear Regression — California Housing",
-    date: "Sep 2024",
-    affiliation: "Stevens Institute of Technology",
-    description:
-      "Built a complete linear regression model from scratch using both the closed-form normal equation and stochastic gradient descent — zero external ML libraries. Implemented manual data splitting, standardization, and MSE evaluation.",
-    stack: ["Python", "Linear Regression", "SGD", "Statistical Modeling"],
+      "An interactive Power BI dashboard that turns raw Amazon sales data into KPIs, regional distribution, category performance, and sales trends. I designed the report with cards, slicers, charts, tables, and geospatial maps.",
+    stack: ["Power BI", "Excel", "Data Visualization", "Business Intelligence"],
   },
   {
     id: "ridge",
@@ -198,18 +282,39 @@ export const projects: Project[] = [
     date: "Sep 2024",
     affiliation: "Stevens Institute of Technology",
     description:
-      "Manually implemented Ridge regression with mini-batch gradient descent to predict bike rental counts. Built K-fold cross-validation and feature selection entirely from scratch on the UCI Bike Sharing Dataset.",
+      "Predicts bike rental counts on the UCI Bike Sharing dataset. I implemented Ridge regression with mini-batch gradient descent, K-fold cross-validation, feature selection, and MSE evaluation by hand, documenting each step for reproducibility.",
     stack: ["Python", "Ridge Regression", "K-Fold CV", "Mini-Batch GD"],
+    metrics: ["No ML libraries for training"],
   },
   {
-    id: "powerbi",
-    title: "Amazon Sales Analytics Dashboard",
-    date: "Dec 2023",
-    affiliation: "Independent",
+    id: "linreg",
+    title: "Manual Linear Regression — California Housing",
+    date: "Sep 2024",
+    affiliation: "Stevens Institute of Technology",
     description:
-      "Designed a comprehensive Amazon Sales Analytics dashboard in Power BI, translating raw sales data into actionable business insights with interactive KPI cards, slicers, geospatial maps, and trend charts.",
-    stack: ["Power BI", "DAX", "Data Visualization", "Business Intelligence"],
-    metrics: ["Interactive KPI dashboard", "Geospatial analysis"],
+      "Regression on the California Housing dataset, built without ML libraries. I implemented the closed-form normal equation and stochastic gradient descent, plus data splitting, standardization, MSE evaluation, and loss curves.",
+    stack: ["Python", "Linear Regression", "SGD", "Statistical Modeling"],
+    metrics: ["No ML libraries"],
+  },
+  {
+    id: "lda",
+    title: "Fisher's LDA: Heart Disease Prediction",
+    date: "Oct 2024",
+    affiliation: "Stevens Institute of Technology",
+    description:
+      "A heart disease classifier on the UCI dataset. I implemented Fisher's LDA from scratch: class means, within-class scatter matrix, projection vector, and a custom decision boundary, evaluated on accuracy, precision, recall, and F1.",
+    stack: ["Python", "Linear Algebra", "Dimensionality Reduction"],
+    metrics: ["No ML libraries"],
+  },
+  {
+    id: "clv",
+    title: "Enhanced Customer Lifetime Value Prediction",
+    date: "Nov – Dec 2024",
+    affiliation: "Stevens Institute of Technology",
+    description:
+      "Built an ensemble-based customer lifetime value prediction model to capture nonlinear patterns in customer behavior and support customer segmentation, retention planning, and marketing resource allocation. Evaluated predictive performance using R², MAE, and RMSE, achieving an MAE of 268.07 and RMSE of 2978.58.",
+    stack: ["Python", "Stacking Ensemble", "Feature Engineering", "Predictive Modeling"],
+    metrics: ["MAE 268.07", "RMSE 2978.58"],
   },
 ];
 
@@ -217,45 +322,64 @@ export type SkillCategory = {
   category: string;
   icon: string;
   skills: string[];
+  groups?: { label: string; skills: string[] }[];
+  featured?: boolean;
 };
 
 export const skillCategories: SkillCategory[] = [
   {
-    category: "Languages",
+    category: "Languages & Databases",
     icon: "Code2",
-    skills: ["Python", "Java", "SQL", "C", "C++", "R"],
+    featured: true,
+    skills: [],
+    groups: [
+      { label: "Languages", skills: ["Python", "SQL", "Java", "JavaScript", "PHP", "C", "C++", "R"] },
+      { label: "Databases", skills: ["MySQL", "PostgreSQL"] },
+    ],
   },
   {
-    category: "AI / ML",
+    category: "Applied AI & ML",
     icon: "Brain",
-    skills: [
-      "PyTorch", "TensorFlow", "Hugging Face", "LangChain",
-      "OpenAI API", "RAG", "Scikit-learn", "MLOps",
-      "Prompt Engineering", "AI Agents",
+    featured: true,
+    skills: [],
+    groups: [
+      {
+        label: "GenAI & Retrieval",
+        skills: [
+          "GenAI & LLMs", "RAG", "Prompt Engineering", "BGE Embeddings", "FAISS", "BM25",
+          "Hybrid Search (RRF)", "Cross-Encoder Reranking", "LangChain", "OpenAI API",
+          "Pinecone", "Milvus",
+        ],
+      },
+      {
+        label: "Models & Methods",
+        skills: [
+          "Transformers", "Mamba", "NER", "CRF", "PyTorch", "TensorFlow",
+          "Hugging Face", "Scikit-learn", "MLOps",
+        ],
+      },
     ],
   },
   {
-    category: "ML Techniques",
-    icon: "GitBranch",
-    skills: [
-      "Feature Engineering", "Hyperparameter Tuning",
-      "Model Deployment", "Cross-validation", "Data Augmentation",
-    ],
-  },
-  {
-    category: "Cloud",
+    category: "Cloud & DevOps",
     icon: "Cloud",
-    skills: ["AWS", "Azure", "GCP", "Spark", "Databricks", "Cloud Data Engineering"],
+    skills: ["AWS", "Azure", "GCP", "Docker", "CI/CD", "Git/GitHub"],
   },
   {
-    category: "Databases",
-    icon: "Database",
-    skills: ["MySQL", "PostgreSQL", "Pinecone", "Milvus"],
+    category: "Data Engineering & Analytics",
+    icon: "Workflow",
+    skills: [
+      "Spark", "Databricks", "ETL Pipelines", "Pandas", "NumPy",
+      "SQL Optimization", "Power BI", "Tableau",
+    ],
   },
   {
-    category: "Frameworks & Tools",
-    icon: "Wrench",
-    skills: ["Flask", "ETL", "Git", "Streamlit", "Power BI", "SQL Optimization"],
+    category: "Web & Backend",
+    icon: "Globe",
+    skills: [
+      "REST APIs", "Flask", "Node.js", "React", "HTML/CSS", "Streamlit", "Gradio",
+      "Unit Testing", "Code Reviews", "Agile",
+    ],
   },
 ];
 
@@ -298,7 +422,7 @@ export const certifications: Certification[] = [
     link: "https://credentials.databricks.com/29e788d4-3ee6-48b6-acca-8e1d7a305c06",
   },
   {
-    name: "AWS Data Engineering",
+    name: "AWS Academy Graduate — Data Engineering",
     issuer: "Amazon Web Services",
     badge: "aws",
     link: "https://www.credly.com/badges/81a5eec8-172c-4b91-b091-254badc4a991/public_url",

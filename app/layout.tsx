@@ -17,20 +17,20 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Joshuva Prabhakar — AI & ML Engineer",
+  title: "Joshuva Prabhakar — Software Engineer",
   description:
-    "AI & ML Engineer | MSCS @ Stevens Institute of Technology | LLMs, MLOps, Generative AI, Cloud Data Engineering. Open to AI Engineer, ML Engineer, and Data roles.",
+    "Software Engineer | MS CS, Stevens Institute of Technology | Python, SQL, REST APIs, Cloud, Docker, CI/CD, data pipelines, GenAI/RAG. Open to Software Engineer, Backend, and Data roles.",
   keywords: [
-    "AI Engineer", "ML Engineer", "Data Scientist", "Machine Learning",
-    "LLM", "MLOps", "Generative AI", "RAG", "Spark", "Databricks",
-    "Azure", "AWS", "GCP", "Stevens Institute", "Portfolio",
+    "Software Engineer", "Software Developer", "Backend Engineer", "Data Engineer",
+    "Python", "SQL", "REST APIs", "Docker", "CI/CD", "ETL", "Spark", "Databricks",
+    "Azure", "AWS", "GCP", "GenAI", "RAG", "Stevens Institute", "Portfolio",
   ],
   authors: [{ name: "Joshuva Prabhakar Palicharla" }],
   metadataBase: new URL("https://joshuva-portfolio.vercel.app"),
   openGraph: {
-    title: "Joshuva Prabhakar — AI & ML Engineer",
+    title: "Joshuva Prabhakar — Software Engineer",
     description:
-      "Building intelligent systems that perform in production. LLMs, MLOps, Generative AI.",
+      "Reliable applications, backend services, and data pipelines. Python, SQL, REST APIs, Cloud, Docker, CI/CD.",
     type: "website",
     url: "https://joshuva-portfolio.vercel.app",
     images: [
@@ -38,14 +38,14 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Joshuva Prabhakar Palicharla — AI & ML Engineer",
+        alt: "Joshuva Prabhakar Palicharla — Software Engineer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Joshuva Prabhakar — AI & ML Engineer",
-    description: "Building intelligent systems that perform in production.",
+    title: "Joshuva Prabhakar — Software Engineer",
+    description: "Reliable applications, backend services, and data pipelines.",
     images: ["/og-image.png"],
   },
 };

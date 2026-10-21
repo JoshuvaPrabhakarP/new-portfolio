@@ -16,12 +16,12 @@ export default function Certifications() {
     <section id="certifications" className="section">
       <div className="max-w-5xl mx-auto px-6">
         <SectionHeading
-          label="Certifications"
-          title="6× Certified"
-          subtitle="Microsoft Azure (×4), Databricks, and AWS — validating cloud and AI expertise."
+          label="Credentials"
+          title="Certifications"
+          subtitle="Microsoft Azure, Databricks, and AWS credentials in cloud, data engineering, and AI."
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4">
           {certifications.map((cert, i) => {
             const color = issuerColor[cert.issuer] ?? issuerColor["Microsoft"];
             return (
@@ -35,7 +35,7 @@ export default function Certifications() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.07 }}
                 whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
-                className="group relative flex flex-col rounded-xl p-5 cursor-pointer transition-all duration-200"
+                className={`group relative flex flex-col rounded-xl p-5 cursor-pointer transition-all duration-200 lg:col-span-2`}
                 style={{
                   background: "var(--color-glass-bg)",
                   border: "1px solid var(--color-border-subtle)",

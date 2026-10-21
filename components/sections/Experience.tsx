@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Briefcase } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
+import TechBadge from "@/components/ui/TechBadge";
 import { experience } from "@/lib/data";
 
 export default function Experience() {
@@ -16,7 +17,7 @@ export default function Experience() {
         <SectionHeading
           label="Experience"
           title="Where I've Applied My Skills"
-          subtitle="Four internships building ML systems, data pipelines, and AI-driven solutions."
+          subtitle="Five internships across full-stack development, data pipelines, analytics, and machine learning."
           align="left"
         />
 
@@ -58,17 +59,32 @@ export default function Experience() {
                   className="flex-1 rounded-xl p-5 transition-all duration-200"
                   style={{
                     background: "var(--color-glass-bg)",
-                    border: `1px solid ${i === 0 ? "var(--color-border-accent)" : "var(--color-border-subtle)"}`,
+                    border: `1px solid ${i === 0 || exp.highlight ? "var(--color-border-accent)" : "var(--color-border-subtle)"}`,
                   }}
                 >
                   <div className="flex flex-wrap items-start justify-between gap-2 mb-3">
                     <div>
-                      <h3
-                        className="text-base font-bold"
-                        style={{ color: "var(--color-text-primary)", fontFamily: "var(--font-heading)" }}
-                      >
-                        {exp.role}
-                      </h3>
+                      <div className="flex flex-wrap items-center gap-2">
+                        <h3
+                          className="text-base font-bold"
+                          style={{ color: "var(--color-text-primary)", fontFamily: "var(--font-heading)" }}
+                        >
+                          {exp.role}
+                        </h3>
+                        {exp.tag && (
+                          <span
+                            className="px-2 py-0.5 rounded-full text-[10px] font-semibold uppercase tracking-wider"
+                            style={{
+                              background: "rgba(6, 182, 212, 0.12)",
+                              border: "1px solid rgba(6, 182, 212, 0.25)",
+                              color: "var(--color-accent-cyan)",
+                              fontFamily: "var(--font-body)",
+                            }}
+                          >
+                            {exp.tag}
+                          </span>
+                        )}
+                      </div>
                       <p
                         className="text-sm font-semibold"
                         style={{ color: "var(--color-accent-cyan)", fontFamily: "var(--font-body)" }}
@@ -105,6 +121,12 @@ export default function Experience() {
                       </li>
                     ))}
                   </ul>
+
+                  <div className="flex flex-wrap gap-1.5 mt-4">
+                    {exp.stack.map((tech) => (
+                      <TechBadge key={tech} label={tech} variant={exp.highlight ? "accent" : "default"} />
+                    ))}
+                  </div>
                 </div>
               </motion.div>
             ))}

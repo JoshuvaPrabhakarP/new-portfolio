@@ -7,9 +7,10 @@ type MetricBadgeProps = {
   label: string;
   context?: string;
   index?: number;
+  featured?: boolean;
 };
 
-export default function MetricBadge({ value, label, context, index = 0 }: MetricBadgeProps) {
+export default function MetricBadge({ value, label, context, index = 0, featured = false }: MetricBadgeProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 16 }}
@@ -17,10 +18,12 @@ export default function MetricBadge({ value, label, context, index = 0 }: Metric
       viewport={{ once: true }}
       transition={{ duration: 0.4, delay: index * 0.07 }}
       className="glass lift-hover rounded-xl p-4 text-center h-full w-full flex flex-col justify-center"
-      style={{ borderColor: "rgba(6, 182, 212, 0.15)" }}
+      style={{ borderColor: featured ? "rgba(6, 182, 212, 0.35)" : "rgba(6, 182, 212, 0.15)" }}
     >
       <div
-        className="text-2xl sm:text-3xl font-bold mb-1 text-gradient-accent"
+        className={`font-bold mb-1 text-gradient-accent ${
+          featured ? "text-2xl sm:text-3xl" : value.length > 6 ? "text-lg sm:text-xl leading-8 sm:leading-9" : "text-2xl sm:text-3xl"
+        }`}
         style={{ fontFamily: "var(--font-heading)" }}
       >
         {value}

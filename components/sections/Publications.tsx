@@ -16,7 +16,7 @@ export default function Publications() {
         <SectionHeading
           label="Research"
           title="Published Work"
-          subtitle="Peer-reviewed research in AI/ML — from deepfake detection to deep learning literature."
+          subtitle="Published papers on deepfake detection and deep learning."
         />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-3xl mx-auto">

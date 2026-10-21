@@ -1,7 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ExternalLink, BookOpen, Star } from "lucide-react";
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { ExternalLink, BookOpen, Star, ChevronDown } from "lucide-react";
+import { GithubIcon } from "@/components/ui/BrandIcons";
 import SectionHeading from "@/components/ui/SectionHeading";
 import TechBadge from "@/components/ui/TechBadge";
 import { projects, type Project } from "@/lib/data";
@@ -13,6 +15,7 @@ function ProjectCard({
   project: Project;
   index: number;
 }) {
+  const [open, setOpen] = useState(false);
   return (
     <motion.div
       initial={{ opacity: 0, y: 24 }}
@@ -96,17 +99,67 @@ function ProjectCard({
             className="text-xs"
             style={{ color: "var(--color-text-muted)", fontFamily: "var(--font-body)" }}
           >
-            {project.date} · {project.affiliation}
+            {project.affiliation ? `${project.date} · ${project.affiliation}` : project.date}
           </p>
         </div>
 
         {/* Description */}
         <p
-          className="text-sm leading-relaxed flex-1"
+          className={`text-sm leading-relaxed ${project.details ? "" : "flex-1"}`}
           style={{ color: "var(--color-text-secondary)", fontFamily: "var(--font-body)" }}
         >
           {project.description}
         </p>
+
+        {/* Expandable details */}
+        {project.details && project.details.length > 0 && (
+          <div className="flex-1">
+            <button
+              type="button"
+              onClick={() => setOpen((v) => !v)}
+              aria-expanded={open}
+              className="inline-flex items-center gap-1.5 text-xs font-semibold cursor-pointer"
+              style={{ color: "var(--color-accent-cyan)", fontFamily: "var(--font-body)" }}
+            >
+              {open ? "Hide details" : "Show details"}
+              <ChevronDown
+                size={14}
+                className="transition-transform duration-200"
+                style={{ transform: open ? "rotate(180deg)" : "none" }}
+              />
+            </button>
+            <AnimatePresence initial={false}>
+              {open && (
+                <motion.ul
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.25 }}
+                  className="overflow-hidden flex flex-col gap-2 mt-3"
+                >
+                  {project.details.map((d) => (
+                    <li key={d} className="flex gap-2.5 text-sm leading-relaxed">
+                      <span
+                        className="mt-2 w-1 h-1 rounded-full shrink-0"
+                        style={{ background: "var(--color-accent-cyan)" }}
+                      />
+                      <span style={{ color: "var(--color-text-secondary)", fontFamily: "var(--font-body)" }}>
+                        {d}
+                      </span>
+                    </li>
+                  ))}
+                </motion.ul>
+              )}
+            </AnimatePresence>
+          </div>
+        )}
+
+        {/* Stack */}
+        <div className="flex flex-wrap gap-1.5 pt-1">
+          {project.stack.map((tech) => (
+            <TechBadge key={tech} label={tech} />
+          ))}
+        </div>
 
         {/* Metrics */}
         {project.metrics && project.metrics.length > 0 && (
@@ -128,19 +181,25 @@ function ProjectCard({
           </div>
         )}
 
-        {/* Stack */}
-        <div className="flex flex-wrap gap-1.5 pt-1">
-          {project.stack.map((tech) => (
-            <TechBadge key={tech} label={tech} />
-          ))}
-        </div>
+        {/* Repository */}
+        {project.repo && (
+          <a
+            href={project.repo}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold self-start"
+            style={{ color: "var(--color-text-muted)", fontFamily: "var(--font-body)" }}
+          >
+            <GithubIcon size={13} /> View repository
+          </a>
+        )}
       </div>
     </motion.div>
   );
 }
 
 export default function Projects() {
-  // Render order: featured first, then rest — total 7 cards
+  // Render order: featured first, then the rest in data order
   const ordered = [
     ...projects.filter((p) => p.highlight),
     ...projects.filter((p) => !p.highlight),
@@ -153,15 +212,17 @@ export default function Projects() {
         <SectionHeading
           label="Projects"
           title="Things I've Built"
-          subtitle="From 15M-record MLOps pipelines to from-scratch ML implementations — each project targets a real problem."
+          subtitle="RAG and document AI, data pipelines, analytics, and ML systems I've designed and built."
         />
 
-        {/* Uniform 3-col grid — equal heights via auto-rows-fr; orphan card spans full width */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 auto-rows-fr">
+        {/* 6-col grid: two lead projects span half each, the rest span a third; orphan card spans full width */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-5">
           {ordered.map((project, i) => (
             <div
               key={project.id}
-              className={`h-full ${i === lastIndex ? "sm:col-span-2 lg:col-span-3" : "col-span-1"}`}
+              className={`h-full ${
+                i === lastIndex ? "sm:col-span-2 lg:col-span-6" : project.lead ? "lg:col-span-3" : "lg:col-span-2"
+              }`}
             >
               <ProjectCard project={project} index={i} />
             </div>
@@ -177,7 +238,7 @@ export default function Projects() {
           className="mt-8 text-center text-sm"
           style={{ color: "var(--color-text-faint)", fontFamily: "var(--font-body)" }}
         >
-          More projects coming soon — actively building in Generative AI, RAG pipelines, and MLOps.
+          More projects coming soon.
         </motion.p>
       </div>
     </section>

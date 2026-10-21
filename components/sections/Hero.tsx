@@ -21,7 +21,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col justify-center pt-28 pb-20 overflow-hidden"
+      className="relative min-h-screen flex flex-col justify-center pt-28 pb-28 overflow-hidden"
       style={{ background: "var(--gradient-hero)" }}
     >
       {/* Premium AI-generated backdrop + legibility overlays */}
@@ -102,6 +102,12 @@ export default function Hero() {
               {personal.headline}
             </p>
             <p
+              className="text-sm sm:text-base mb-3 tracking-wide"
+              style={{ color: "var(--color-text-secondary)", fontFamily: "var(--font-body)" }}
+            >
+              {personal.subheadline}
+            </p>
+            <p
               className="text-base sm:text-lg leading-relaxed"
               style={{ color: "var(--color-text-muted)", fontFamily: "var(--font-body)" }}
             >
@@ -178,15 +184,20 @@ export default function Hero() {
             >
               Key Highlights
             </p>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 auto-rows-fr">
+            <div className="grid grid-cols-2 sm:grid-cols-6 gap-3 auto-rows-fr">
               {metrics.map((m, i) => (
-                <MetricBadge
+                <div
                   key={m.value}
+                  className={i < 2 ? "col-span-2 sm:col-span-3" : "col-span-1 sm:col-span-2"}
+                >
+                <MetricBadge
                   value={m.value}
                   label={m.label}
                   context={m.context}
                   index={i}
+                  featured={m.featured}
                 />
+                </div>
               ))}
             </div>
           </motion.div>
@@ -214,7 +225,7 @@ export default function Hero() {
                 >
                   <Image
                     src="/profile.jpg"
-                    alt="Joshuva Prabhakar Palicharla — AI & ML Engineer"
+                    alt="Joshuva Prabhakar Palicharla — Software Engineer"
                     width={320}
                     height={320}
                     sizes="(max-width: 640px) 224px, (max-width: 1024px) 288px, 320px"

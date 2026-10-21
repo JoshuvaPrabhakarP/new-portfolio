@@ -43,7 +43,7 @@ export default function Contact() {
         <SectionHeading
           label="Contact"
           title="Let's Work Together"
-          subtitle="Open to AI Engineer, ML Engineer, and Data roles — NJ/NY preferred, remote welcome."
+          subtitle="Open to Software Engineer, Backend, and Data roles — NJ/NY preferred, remote welcome."
         />
 
         <div className="max-w-2xl mx-auto">
@@ -99,7 +99,7 @@ export default function Contact() {
                       {link.label}
                     </p>
                     <p
-                      className="text-sm font-medium truncate"
+                      className="text-sm font-medium break-all sm:break-normal sm:truncate"
                       style={{ color: "var(--color-text-primary)", fontFamily: "var(--font-body)" }}
                     >
                       {link.value}
